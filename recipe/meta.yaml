@@ -13,6 +13,10 @@
 {% set target_name = "arm64" %}  # [win and arm64]
 {% set extension = "tar.xz" %}  # [not win]
 {% set extension = "zip" %}  # [win]
+{% set sha256 = "38949b20b4fdbc327a4540370c962c71479f556f70582c17a578225a9b28d1bc" %}  # [linux64]
+{% set sha256 = "7df3c67dbea9c266b436fa3b892b23539fcaf63ab9c8e7b945c3f8e24be4f507" %}  # [aarch64]
+{% set sha256 = "4f665e4df32ebe9cdecb4b6eaf408d8e0321cf126e87384c0358cc2aee4317e1" %}  # [win64]
+{% set sha256 = "a5be73787be102164d4c8d83fdaf9464b5e97865614ba33f6103d8123fbd6921" %}  # [win and arm64]
 
 package:
   name: {{ name|lower }}
@@ -20,10 +24,7 @@ package:
 
 source:
   url: https://developer.download.nvidia.com/compute/cuda/redist/cuda_cuxxfilt/{{ platform }}/cuda_cuxxfilt-{{ platform }}-{{ version }}-archive.{{ extension }}
-  sha256: 38949b20b4fdbc327a4540370c962c71479f556f70582c17a578225a9b28d1bc  # [linux64]
-  sha256: 7df3c67dbea9c266b436fa3b892b23539fcaf63ab9c8e7b945c3f8e24be4f507  # [aarch64]
-  sha256: 4f665e4df32ebe9cdecb4b6eaf408d8e0321cf126e87384c0358cc2aee4317e1  # [win64]
-  sha256: a5be73787be102164d4c8d83fdaf9464b5e97865614ba33f6103d8123fbd6921  # [win and arm64]
+  sha256: {{ sha256 }}
 
 build:
   number: 0
